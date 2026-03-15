@@ -1,0 +1,225 @@
+import { BL, MU } from "./theme";
+
+const BC={
+  "Crew Favorite":{bg:"rgba(18,119,189,.18)",t:BL},
+  "Top Pick":{bg:"rgba(18,119,189,.18)",t:BL},
+  "Pilot Rate":{bg:"rgba(34,197,94,.15)",t:"#4ade80"},
+  "Verified":{bg:"rgba(255,255,255,.08)",t:MU},
+  "Quick Round":{bg:"rgba(234,179,8,.15)",t:"#facc15"},
+  "Late Night":{bg:"rgba(168,85,247,.15)",t:"#c084fc"},
+  "Ops Warning":{bg:"rgba(239,68,68,.15)",t:"#f87171"},
+  "Ops Note":{bg:"rgba(234,179,8,.15)",t:"#facc15"},
+  "Must Do":{bg:"rgba(34,197,94,.15)",t:"#4ade80"},
+};
+
+const PT={
+  Tip:{bg:"rgba(18,119,189,.18)",t:BL,i:"💡"},
+  Meetup:{bg:"rgba(34,197,94,.15)",t:"#4ade80",i:"✈️"},
+  Warning:{bg:"rgba(239,68,68,.15)",t:"#f87171",i:"⚠️"},
+  Question:{bg:"rgba(234,179,8,.15)",t:"#facc15",i:"❓"},
+  Review:{bg:"rgba(168,85,247,.15)",t:"#c084fc",i:"⭐"},
+};
+
+const EVENTS=[
+  {id:"e1",name:"Super Bowl LX",cat:"Sports",date:"Feb 8, 2026",loc:"New Orleans, LA",code:"MSY",img:"https://images.unsplash.com/photo-1566577739112-5180d4bf9390?w=600&q=80",going:127,desc:"Super Bowl weekend in NOLA. Best city in the country for a layover.",tags:["NFL","Football","NOLA"]},
+  {id:"e2",name:"The Masters Tournament",cat:"Golf",date:"Apr 10–13, 2026",loc:"Augusta, GA",code:"AGS",img:"https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=600&q=80",going:214,desc:"The most legendary week in golf. Pilots coordinate Augusta-area tee times every year.",tags:["Golf","Augusta","Major"]},
+  {id:"e3",name:"Kentucky Derby",cat:"Sports",date:"May 2, 2026",loc:"Louisville, KY",code:"SDF",img:"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",going:89,desc:"Churchill Downs infield or grandstand — crew members coordinate access every year.",tags:["Horse Racing","Louisville","Derby"]},
+  {id:"e4",name:"Las Vegas Grand Prix",cat:"Sports",date:"Nov 20–22, 2026",loc:"Las Vegas, NV",code:"LAS",img:"https://images.unsplash.com/photo-1549924231-f129b911e442?w=600&q=80",going:176,desc:"F1 on the Strip. Biggest Vegas weekend of the year.",tags:["F1","Formula 1","Vegas"]},
+  {id:"e5",name:"Coachella Valley Music & Arts",cat:"Music",date:"Apr 11–13, 2026",loc:"Indio, CA",code:"PSP",img:"https://images.unsplash.com/photo-1506157786151-b8491531f063?w=600&q=80",going:63,desc:"Desert festival season. PSP is a quick layover airport.",tags:["Music","Festival","Desert"]},
+  {id:"e6",name:"NBAA BACE 2026",cat:"Aviation",date:"Oct 20–22, 2026",loc:"Las Vegas, NV",code:"LAS",img:"https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&q=80",going:341,desc:"The biggest business aviation event of the year.",tags:["Aviation","Business Aviation","NBAA"]},
+  {id:"e7",name:"Art Basel Miami Beach",cat:"Arts",date:"Dec 4–7, 2026",loc:"Miami Beach, FL",code:"MIA",img:"https://images.unsplash.com/photo-1571115764595-644a1f56a55c?w=600&q=80",going:98,desc:"Miami in December. Art Basel week — plan early, hotels triple.",tags:["Art","Miami","Culture"]},
+  {id:"e8",name:"Sundance Film Festival",cat:"Arts",date:"Jan 22–Feb 1, 2026",loc:"Park City, UT",code:"SLC",img:"https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=600&q=80",going:54,desc:"SLC is your gateway. Coordinate the shuttle up to Park City.",tags:["Film","Festival","Utah"]},
+  {id:"e9",name:"Cannes Film Festival",cat:"Arts",date:"May 13–24, 2026",loc:"Cannes, France",code:"NCE",img:"https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600&q=80",going:187,desc:"NCE in May. The busiest charter week in Europe.",tags:["Film","Cannes","Charter"]},
+  {id:"e10",name:"Dubai Airshow 2026",cat:"Aviation",date:"Nov 17–21, 2026",loc:"Dubai, UAE",code:"DXB",img:"https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&q=80",going:276,desc:"The Middle East's premier aviation event.",tags:["Aviation","Dubai","Airshow"]},
+  {id:"e11",name:"Oshkosh AirVenture",cat:"Aviation",date:"Jul 20–26, 2026",loc:"Oshkosh, WI",code:"OSH",img:"https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?w=600&q=80",going:412,desc:"The world's greatest aviation celebration. OSH NOTAM week.",tags:["Aviation","EAA","Airshow"]},
+  {id:"e12",name:"Aspen Ideas Festival",cat:"Business",date:"Jun 27–Jul 3, 2026",loc:"Aspen, CO",code:"ASE",img:"https://images.unsplash.com/photo-1551632811-561732d1e306?w=600&q=80",going:93,desc:"ASE has one of the most challenging approaches in the country. Corporate crews coordinate here.",tags:["Business","Aspen","Corporate"]},
+  {id:"e13",name:"Sun Valley Conference",cat:"Business",date:"Jul 8–12, 2026",loc:"Sun Valley, ID",code:"SUN",img:"https://images.unsplash.com/photo-1501854140801-50d01698950b?w=600&q=80",going:118,desc:"Allen & Company gathering. SUN ramp fills with Globals and Gulfstreams.",tags:["Business","Tech","Charter"]},
+  {id:"e14",name:"World Economic Forum",cat:"Business",date:"Jan 20–24, 2027",loc:"Davos, Switzerland",code:"ZRH",img:"https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80",going:198,desc:"Davos week means ZRH overflow. Coordinate alpine approaches and crew positioning.",tags:["Business","Davos","Charter"]},
+];
+
+const AIRFRAMES = [
+
+  // ─── AIRBUS COMMERCIAL ────────────────────────────────
+  {id:"A220",  make:"Airbus", model:"A220",  name:"Airbus A220",         short:"A220",     cat:"Narrowbody",  members:741,  active:19, desc:"A220-100 & 300 crew",                    recent:"FMS discrepancy on RNAV arrivals — anyone else?",      img:"https://images.unsplash.com/photo-1606768666853-403c90a981ad?w=600&q=80"},
+  {id:"A318",  make:"Airbus", model:"A318",  name:"Airbus A318",         short:"A318",     cat:"Narrowbody",  members:91,   active:4,  desc:"A318 community",                        recent:"Rare bird but still flying strong.",                    img:"https://images.unsplash.com/photo-1569629743817-70d8db6c323b?w=600&q=80"},
+  {id:"A319",  make:"Airbus", model:"A319",  name:"Airbus A319",         short:"A319",     cat:"Narrowbody",  members:582,  active:16, desc:"A319 pilots",                           recent:"Short-field performance discussions.",                  img:"https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&q=80"},
+  {id:"A320",  make:"Airbus", model:"A320",  name:"Airbus A320",         short:"A320",     cat:"Narrowbody",  members:2104, active:63, desc:"A320 crews — all variants",             recent:"NEO fuel flows on cold-soak starts are off at ORD.",    img:"https://images.unsplash.com/photo-1556388158-158ea5ccacbd?w=600&q=80"},
+  {id:"A321",  make:"Airbus", model:"A321",  name:"Airbus A321",         short:"A321",     cat:"Narrowbody",  members:1382, active:37, desc:"A321 pilots",                           recent:"NEO vs CEO climb performance.",                         img:"https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=600&q=80"},
+  {id:"A330",  make:"Airbus", model:"A330",  name:"Airbus A330",         short:"A330",     cat:"Widebody",    members:834,  active:22, desc:"A330-200, -300 & -900neo",              recent:"LAX hotel for A330 crew just changed.",                 img:"https://images.unsplash.com/photo-1540548279733-8c4c4e6bee72?w=600&q=80"},
+  {id:"A340",  make:"Airbus", model:"A340",  name:"Airbus A340",         short:"A340",     cat:"Widebody",    members:224,  active:7,  desc:"A340 pilots",                           recent:"Long haul fuel burn comparisons.",                      img:"https://images.unsplash.com/photo-1530272532237-c40f56a4fd43?w=600&q=80"},
+  {id:"A350",  make:"Airbus", model:"A350",  name:"Airbus A350",         short:"A350",     cat:"Widebody",    members:612,  active:18, desc:"A350-900 & -1000 drivers",              recent:"Higher-than-expected fuel burns westbound — seeing this?",img:"https://images.unsplash.com/photo-1583400996140-cff63b4e4a7a?w=600&q=80"},
+  {id:"A380",  make:"Airbus", model:"A380",  name:"Airbus A380",         short:"A380",     cat:"Widebody",    members:441,  active:12, desc:"A380 pilots",                           recent:"Crew bunk comfort debate.",                             img:"https://images.unsplash.com/photo-1542296332-2e4473faf563?w=600&q=80"},
+
+  // ─── BOEING COMMERCIAL ───────────────────────────────
+  {id:"B717",  make:"Boeing", model:"717",   name:"Boeing 717",          short:"B717",     cat:"Regional",    members:141,  active:5,  desc:"B717 crews",                            recent:"Still loved by pilots.",                                img:"https://images.unsplash.com/photo-1574717024453-354056afc40b?w=600&q=80"},
+  {id:"B727",  make:"Boeing", model:"727",   name:"Boeing 727",          short:"B727",     cat:"Narrowbody",  members:92,   active:3,  desc:"727 community",                         recent:"Classic jet nostalgia.",                                img:"https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=600&q=80"},
+  {id:"B737",  make:"Boeing", model:"737",   name:"Boeing 737",          short:"B737",     cat:"Narrowbody",  members:1842, active:47, desc:"737 Classic, NG & MAX community",       recent:"Anyone know if the MAX 8 gets the new EFB update in Jan?",img:"https://images.unsplash.com/photo-1570285986885-4f03ca3ee3eb?w=600&q=80"},
+  {id:"B747",  make:"Boeing", model:"747",   name:"Boeing 747",          short:"B747",     cat:"Widebody",    members:344,  active:9,  desc:"Queen of the Skies",                    recent:"Freighter operations discussion.",                      img:"https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=600&q=80"},
+  {id:"B757",  make:"Boeing", model:"757",   name:"Boeing 757",          short:"B757",     cat:"Narrowbody",  members:542,  active:17, desc:"757 pilots",                            recent:"Rocket ship climb performance.",                        img:"https://images.unsplash.com/photo-1601924638867-3a6de6b7a500?w=600&q=80"},
+  {id:"B767",  make:"Boeing", model:"767",   name:"Boeing 767",          short:"B767",     cat:"Widebody",    members:512,  active:14, desc:"767 pilots",                            recent:"Cargo ops discussion.",                                 img:"https://images.unsplash.com/photo-1530521954074-e64f6810b32d?w=600&q=80"},
+  {id:"B777",  make:"Boeing", model:"777",   name:"Boeing 777",          short:"B777",     cat:"Widebody",    members:1203, active:31, desc:"Triple-Seven drivers — all variants",   recent:"Paris CDG crew hotel changed. New spot is actually better.",img:"https://images.unsplash.com/photo-1583729476095-82e61108a043?w=600&q=80"},
+  {id:"B787",  make:"Boeing", model:"787",   name:"Boeing 787",          short:"B787",     cat:"Widebody",    members:987,  active:28, desc:"Dreamliner pilots, all series",         recent:"Best 787 sim instructors in ATL? Need a rec.",          img:"https://images.unsplash.com/photo-1609342718907-a03ab9d8c8f3?w=600&q=80"},
+
+  // ─── EMBRAER ─────────────────────────────────────────
+  {id:"E170",  make:"Embraer", model:"E170", name:"Embraer E170",        short:"E170",     cat:"Regional",    members:201,  active:8,  desc:"E170 pilots",                           recent:"Short runway operations.",                              img:"https://images.unsplash.com/photo-1559268950-2de5614cfc79?w=600&q=80"},
+  {id:"E175",  make:"Embraer", model:"E175", name:"Embraer E175",        short:"E175",     cat:"Regional",    members:1129, active:34, desc:"E175 crews",                            recent:"Republic E175 crews — new SOP update is live.",         img:"https://images.unsplash.com/photo-1606768666853-403c90a981ad?w=600&q=80"},
+  {id:"E190",  make:"Embraer", model:"E190", name:"Embraer E190",        short:"E190",     cat:"Regional",    members:411,  active:13, desc:"E190 pilots",                           recent:"Autobrake logic question.",                             img:"https://images.unsplash.com/photo-1520437358207-323b43b50729?w=600&q=80"},
+  {id:"E195",  make:"Embraer", model:"E195", name:"Embraer E195",        short:"E195",     cat:"Regional",    members:312,  active:11, desc:"E195 crews",                            recent:"Range vs payload discussion.",                          img:"https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=600&q=80"},
+
+  // ─── BOMBARDIER REGIONAL JETS ────────────────────────
+  {id:"CRJ200",make:"Bombardier",model:"CRJ200",name:"Bombardier CRJ200",short:"CRJ200",   cat:"Regional",    members:210,  active:8,  desc:"CRJ200 pilots",                         recent:"Classic regional workhorse.",                           img:"https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&q=80"},
+  {id:"CRJ700",make:"Bombardier",model:"CRJ700",name:"Bombardier CRJ700",short:"CRJ700",   cat:"Regional",    members:311,  active:10, desc:"CRJ700 pilots",                         recent:"Approach handling discussion.",                         img:"https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=600&q=80"},
+  {id:"CRJ900",make:"Bombardier",model:"CRJ900",name:"Bombardier CRJ900",short:"CRJ900",   cat:"Regional",    members:409,  active:12, desc:"CRJ900 crews",                          recent:"Brake temp warnings at high altitude airports.",        img:"https://images.unsplash.com/photo-1551632811-561732d1e306?w=600&q=80"},
+  {id:"CRJ1000",make:"Bombardier",model:"CRJ1000",name:"Bombardier CRJ1000",short:"CRJ1000",cat:"Regional",  members:151,  active:6,  desc:"CRJ1000 pilots",                        recent:"Longest CRJ variant discussions.",                      img:"https://images.unsplash.com/photo-1556388158-158ea5ccacbd?w=600&q=80"},
+
+  // ─── BOMBARDIER BUSINESS JETS ────────────────────────
+  {id:"CL35",  make:"Bombardier",model:"Challenger 3500",name:"Bombardier Challenger 3500",short:"CL350",cat:"Business Jet",members:284,active:9, desc:"Challenger 3500 flight crews",recent:"CL350 avionics update — anyone completed the Garmin G5000 SB yet?",img:"https://images.unsplash.com/photo-1540548279733-8c4c4e6bee72?w=600&q=80"},
+  {id:"CL65",  make:"Bombardier",model:"Challenger 650", name:"Bombardier Challenger 650", short:"CL650",cat:"Business Jet",members:318,active:11,desc:"Challenger 650 & 605 community",recent:"CL650 fuel imbalance on long legs westbound.",          img:"https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=600&q=80"},
+  {id:"GLF",   make:"Bombardier",model:"Global 7500",    name:"Global 7500",               short:"GL7500",cat:"Business Jet",members:347,active:9, desc:"Bombardier Global family",    recent:"Global 7500 in STF — groundspeed records this month?", img:"https://images.unsplash.com/photo-1570285986885-4f03ca3ee3eb?w=600&q=80"},
+  {id:"GLXRS", make:"Bombardier",model:"Global XRS",     name:"Global XRS / 5000",         short:"Gl XRS",cat:"Business Jet",members:276,active:8, desc:"Global Express XRS & Global 5000 crews",recent:"Global 5000 range planning tips for transatlantic with full pax?",img:"https://images.unsplash.com/photo-1583400996140-cff63b4e4a7a?w=600&q=80"},
+
+  // ─── CESSNA CITATION BUSINESS JETS ──────────────────
+  {id:"CJ1",   make:"Cessna",model:"Citation CJ1",       name:"Cessna Citation CJ1",       short:"CJ1",      cat:"Business Jet",members:101,active:4, desc:"Citation CJ1 pilots",     recent:"CJ avionics upgrade discussion.",                       img:"https://images.unsplash.com/photo-1569629743817-70d8db6c323b?w=600&q=80"},
+  {id:"CJ2",   make:"Cessna",model:"Citation CJ2",       name:"Cessna Citation CJ2",       short:"CJ2",      cat:"Business Jet",members:123,active:5, desc:"Citation CJ2 pilots",     recent:"Short runway performance.",                             img:"https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=600&q=80"},
+  {id:"CJ3",   make:"Cessna",model:"Citation CJ3",       name:"Cessna Citation CJ3",       short:"CJ3",      cat:"Business Jet",members:144,active:6, desc:"Citation CJ3 crews",      recent:"Garmin updates discussion.",                            img:"https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=600&q=80"},
+  {id:"CJ4",   make:"Cessna",model:"Citation CJ4",       name:"Cessna Citation CJ4",       short:"CJ4",      cat:"Business Jet",members:177,active:7, desc:"Citation CJ4 pilots",     recent:"Range planning question.",                              img:"https://images.unsplash.com/photo-1540548279733-8c4c4e6bee72?w=600&q=80"},
+  {id:"XLS",   make:"Cessna",model:"Citation XLS",       name:"Cessna Citation XLS",       short:"XLS",      cat:"Business Jet",members:233,active:9, desc:"Citation XLS crews",      recent:"Maintenance intervals discussion.",                     img:"https://images.unsplash.com/photo-1583729476095-82e61108a043?w=600&q=80"},
+  {id:"LAT",   make:"Cessna",model:"Citation Latitude",  name:"Cessna Citation Latitude",  short:"Latitude", cat:"Business Jet",members:221,active:9, desc:"Citation Latitude crews",  recent:"Climb performance discussion.",                        img:"https://images.unsplash.com/photo-1570285986885-4f03ca3ee3eb?w=600&q=80"},
+  {id:"LONG",  make:"Cessna",model:"Citation Longitude", name:"Cessna Citation Longitude", short:"Longitude",cat:"Business Jet",members:198,active:8, desc:"Citation Longitude pilots", recent:"Fuel planning tool update.",                           img:"https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=600&q=80"},
+  {id:"SOV",   make:"Cessna",model:"Citation Sovereign", name:"Cessna Citation Sovereign", short:"Sovereign",cat:"Business Jet",members:173,active:7, desc:"Citation Sovereign crews",  recent:"Runway performance debate.",                           img:"https://images.unsplash.com/photo-1583400996140-cff63b4e4a7a?w=600&q=80"},
+  {id:"EXCEL", make:"Cessna",model:"Citation Excel",     name:"Cessna Citation Excel",     short:"Excel",    cat:"Business Jet",members:156,active:6, desc:"Citation Excel pilots",    recent:"Avionics retrofit discussion.",                         img:"https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=600&q=80"},
+
+  // ─── GULFSTREAM BUSINESS JETS ────────────────────────
+  {id:"G550",  make:"Gulfstream",model:"G550",  name:"Gulfstream G550",   short:"G550",     cat:"Business Jet",members:389,active:11,desc:"G550 & G600 community",  recent:"PlaneView II upgrade — worth the cost for the 550?",   img:"https://images.unsplash.com/photo-1540548279733-8c4c4e6bee72?w=600&q=80"},
+  {id:"G650",  make:"Gulfstream",model:"G650",  name:"Gulfstream G650/700",short:"G650",    cat:"Business Jet",members:423,active:14,desc:"G650 & G700 flight crews",recent:"Best handler at TEB for G650? Prices have gone insane.", img:"https://images.unsplash.com/photo-1583400996140-cff63b4e4a7a?w=600&q=80"},
+
+  // ─── PILATUS ──────────────────────────────────────────
+  {id:"PC12",  make:"Pilatus",model:"PC-12",    name:"Pilatus PC-12",      short:"PC-12",    cat:"Turboprop",   members:631,active:22,desc:"PC-12 & PC-12 NGX community",recent:"PC-12 NGX autopilot disconnect on approach — anyone else?",img:"https://images.unsplash.com/photo-1559268950-2de5614cfc79?w=600&q=80"},
+  {id:"PC24",  make:"Pilatus",model:"PC-24",    name:"Pilatus PC-24",      short:"PC-24",    cat:"Business Jet",members:312,active:14,desc:"PC-24 crews — the jet that goes everywhere",recent:"PC-24 on unpaved strips — anyone done Sedona or back-country Idaho?",img:"https://images.unsplash.com/photo-1551632811-561732d1e306?w=600&q=80"},
+
+  // ─── BEECHCRAFT ───────────────────────────────────────
+  {id:"KA200", make:"Beechcraft",model:"King Air 200",name:"Beechcraft King Air 200",short:"KA200",cat:"Turboprop",members:214,active:8, desc:"King Air 200 pilots",     recent:"Pressurization troubleshooting.",                       img:"https://images.unsplash.com/photo-1530521954074-e64f6810b32d?w=600&q=80"},
+  {id:"KA350", make:"Beechcraft",model:"King Air 350",name:"Beechcraft King Air 350",short:"KA350",cat:"Turboprop",members:892,active:27,desc:"King Air 90, 200, 250, 350 — all series",recent:"King Air 350 prop sync issues at altitude — anyone troubleshooting?",img:"https://images.unsplash.com/photo-1520437358207-323b43b50729?w=600&q=80"},
+  {id:"BONANZA",make:"Beechcraft",model:"Bonanza G36",name:"Beechcraft Bonanza G36",short:"Bonanza",cat:"Piston",  members:213,active:9, desc:"Bonanza pilots",          recent:"IO550 upgrades.",                                       img:"https://images.unsplash.com/photo-1606768666853-403c90a981ad?w=600&q=80"},
+
+  // ─── ATR / DE HAVILLAND ──────────────────────────────
+  {id:"ATR42", make:"ATR",model:"ATR 42",       name:"ATR 42",             short:"ATR42",    cat:"Turboprop",   members:187,active:7, desc:"ATR42 pilots",               recent:"Island operations tips.",                               img:"https://images.unsplash.com/photo-1559268950-2de5614cfc79?w=600&q=80"},
+  {id:"ATR72", make:"ATR",model:"ATR 72",       name:"ATR 72",             short:"ATR72",    cat:"Turboprop",   members:358,active:11,desc:"ATR72 crews",                 recent:"Prop vibration troubleshooting.",                       img:"https://images.unsplash.com/photo-1530521954074-e64f6810b32d?w=600&q=80"},
+  {id:"Q400",  make:"De Havilland",model:"Dash 8 Q400",name:"De Havilland Dash 8 Q400",short:"Q400",cat:"Turboprop",members:421,active:15,desc:"Q400 pilots",            recent:"Q400 deicing hold times at MSP in January — tips?",     img:"https://images.unsplash.com/photo-1574717024453-354056afc40b?w=600&q=80"},
+
+  // ─── DAHER ────────────────────────────────────────────
+  {id:"TBM900",make:"Daher",model:"TBM 900",    name:"Daher TBM 900",      short:"TBM900",   cat:"Turboprop",   members:188,active:7, desc:"TBM900 pilots",              recent:"High altitude cruise speeds.",                          img:"https://images.unsplash.com/photo-1520437358207-323b43b50729?w=600&q=80"},
+
+  // ─── CESSNA PISTON ────────────────────────────────────
+  {id:"C172",  make:"Cessna",model:"172 Skyhawk",name:"Cessna 172 Skyhawk",short:"C172",     cat:"Piston",      members:518,active:22,desc:"C172 pilots",                recent:"High density altitude leaning tips.",                   img:"https://images.unsplash.com/photo-1574717024453-354056afc40b?w=600&q=80"},
+  {id:"C182",  make:"Cessna",model:"182 Skylane",name:"Cessna 182 Skylane",short:"C182",     cat:"Piston",      members:224,active:10,desc:"C182 pilots",                recent:"Garmin panel upgrades.",                                img:"https://images.unsplash.com/photo-1559268950-2de5614cfc79?w=600&q=80"},
+  {id:"C206",  make:"Cessna",model:"206 Stationair",name:"Cessna 206 Stationair",short:"C206",cat:"Piston",     members:182,active:7, desc:"C206 pilots",                recent:"Bush flying discussion.",                               img:"https://images.unsplash.com/photo-1530521954074-e64f6810b32d?w=600&q=80"},
+  {id:"C421",  make:"Cessna",model:"421 Golden Eagle",name:"Cessna 421 Golden Eagle",short:"C421",cat:"Piston", members:119,active:5, desc:"C421 pilots",                recent:"Pressurization troubleshooting.",                       img:"https://images.unsplash.com/photo-1551632811-561732d1e306?w=600&q=80"},
+
+  // ─── CIRRUS ───────────────────────────────────────────
+  {id:"SR22",  make:"Cirrus",model:"SR22",       name:"Cirrus SR22",        short:"SR22",     cat:"Piston",      members:431,active:17,desc:"SR22 community",              recent:"CAPS discussion.",                                      img:"https://images.unsplash.com/photo-1583729476095-82e61108a043?w=600&q=80"},
+
+  // ─── ROBINSON HELICOPTERS ────────────────────────────
+  {id:"R44",   make:"Robinson",model:"R44",      name:"Robinson R44",       short:"R44",      cat:"Helicopter",  members:384,active:14,desc:"R44 pilots",                  recent:"Governor response adjustments?",                       img:"https://images.unsplash.com/photo-1530089711124-9ca31fb9e863?w=600&q=80"},
+  {id:"R66",   make:"Robinson",model:"R66",      name:"Robinson R66",       short:"R66",      cat:"Helicopter",  members:221,active:9, desc:"R66 turbine helicopter pilots",recent:"Hot and high performance discussion.",                  img:"https://images.unsplash.com/photo-1604681630513-68a2a5da8762?w=600&q=80"},
+
+  // ─── BELL HELICOPTERS ────────────────────────────────
+  {id:"B206",  make:"Bell",model:"206 JetRanger",name:"Bell 206 JetRanger", short:"B206",     cat:"Helicopter",  members:302,active:11,desc:"Bell 206 pilots",              recent:"Fuel control quirks?",                                  img:"https://images.unsplash.com/photo-1530089711124-9ca31fb9e863?w=600&q=80"},
+  {id:"B407",  make:"Bell",model:"407",          name:"Bell 407",           short:"B407",     cat:"Helicopter",  members:214,active:8, desc:"Bell 407 pilots",              recent:"Power margins in mountain ops.",                        img:"https://images.unsplash.com/photo-1604681630513-68a2a5da8762?w=600&q=80"},
+
+  // ─── AIRBUS HELICOPTERS ───────────────────────────────
+  {id:"H125",  make:"Airbus",model:"H125",       name:"Airbus H125 (AS350)", short:"H125",    cat:"Helicopter",  members:431,active:16,desc:"Airbus H125 pilots",           recent:"High altitude hover performance.",                      img:"https://images.unsplash.com/photo-1530089711124-9ca31fb9e863?w=600&q=80"},
+  {id:"H145",  make:"Airbus",model:"H145",       name:"Airbus H145",         short:"H145",    cat:"Helicopter",  members:201,active:7, desc:"Airbus H145 crews",            recent:"EMS configuration discussion.",                        img:"https://images.unsplash.com/photo-1604681630513-68a2a5da8762?w=600&q=80"},
+
+  // ─── MILITARY ─────────────────────────────────────────
+  {id:"UH60",  make:"Sikorsky",model:"UH-60 Black Hawk",name:"Sikorsky UH-60 Black Hawk",short:"UH-60",cat:"Helicopter",members:322,active:12,desc:"Black Hawk crews",    recent:"Mountain performance tips.",                           img:"https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?w=600&q=80"},
+
+];
+
+const INIT_POSTS={
+  PSM:[
+    {id:200,author:"Capt_Oakes",airline:"NetJets",base:"TEB",rank:"Captain",avatar:"CO",tag:"Review",time:"3h ago",title:"River House — best seafood layover meal in New England",body:"Flew into Pease last week. River House was genuinely one of the better meals I've had on a layover anywhere in the Northeast. Fresh, well-prepared, right on the water. Book ahead.",upvotes:27,liked:false,pinned:true,comments:[]},
+    {id:201,author:"FO_Marsh",airline:"SkyWest",base:"BOS",rank:"First Officer",avatar:"FM",tag:"Tip",time:"1d ago",title:"Drive to Kennebunkport — make the time",body:"45 minutes north, max. If you've never been to Kennebunkport, Maine, this is the layover to do it. Drive up the coast, stop at Dock Square, grab lunch. One of the best quick day trips in the Northeast.",upvotes:19,liked:false,pinned:false,comments:[]},
+  ],
+  SNA:[
+    {id:210,author:"Capt_Holt",airline:"NetJets",base:"TEB",rank:"Captain",avatar:"CH",tag:"Warning",time:"2h ago",title:"KSNA curfew is real — don't guess",body:"Lost a client relationship because a relief crew didn't review noise abatement and filed a late departure. KSNA is not forgiving on this. Know it before you fly in.",upvotes:48,liked:false,pinned:true,comments:[]},
+    {id:211,author:"FO_Tran",airline:"United",base:"LAX",rank:"First Officer",avatar:"FT",tag:"Tip",time:"1d ago",title:"ACI has two buildings — I went to the wrong one",body:"Sounds obvious. It is not obvious. Call ahead and confirm which ACI facility your trip is using. Lost 45 minutes on an early departure because of this.",upvotes:34,liked:false,pinned:false,comments:[]},
+    {id:212,author:"Capt_Briggs",airline:"Flexjet",base:"DEN",rank:"Captain",avatar:"CB",tag:"Review",time:"2d ago",title:"Lyon Air Museum — worth going even if you've seen it before",body:"Right on the field at KSNA. Outstanding collection of WWII aircraft in flying condition. If you have two hours and any interest in aviation history, don't skip it.",upvotes:22,liked:false,pinned:false,comments:[]},
+  ],
+  TEX:[
+    {id:220,author:"Capt_Whitmore",airline:"NetJets",base:"CMH",rank:"Captain",avatar:"CW",tag:"Warning",time:"3h ago",title:"KTEX afternoon winds — do not underestimate",body:"I've been into KTEX maybe 30 times. The difference between a 0700 arrival and a 1400 arrival is dramatic. Book the earliest slot you can. We ended up diverting to KMTJ twice this ski season because afternoon winds made KTEX unworkable.",upvotes:61,liked:false,pinned:true,comments:[]},
+    {id:221,author:"FO_Webb",airline:"Wheels Up",base:"DEN",rank:"First Officer",avatar:"FW",tag:"Tip",time:"1d ago",title:"Ski discount at Telluride — show your pilot cert at the ticket window",body:"This is real. Show your pilot certificate or badge at the ski resort ticket office. Discount varies by season but it's been consistent for several years. Ask specifically at the main ticket office, not the rental shop.",upvotes:39,liked:false,pinned:false,comments:[]},
+    {id:222,author:"Capt_Fernandez",airline:"Vista Global",base:"MIA",rank:"Captain",avatar:"CF",tag:"Review",time:"2d ago",title:"Allred's — take the gondola up, it's the whole point",body:"You don't just go to Allred's for the food (which is very good). You go for the gondola ride up and the view. It's a genuinely special dinner in an unreal setting. Worth every penny.",upvotes:28,liked:false,pinned:false,comments:[]},
+  ],
+  SJU:[
+    {id:230,author:"Capt_Ruiz",airline:"American",base:"MIA",rank:"Captain",avatar:"CR",tag:"Warning",time:"1h ago",title:"TJIG vs. TJSJ on final — brief it every time",body:"I always brief this explicitly with first-time copilots into SJU. TJIG will be sitting right there on your left on a 10-mile final and it looks like an airport because it is an airport. Know the difference before you start the approach, not during.",upvotes:56,liked:false,pinned:true,comments:[]},
+    {id:231,author:"FO_Cruz",airline:"United",base:"IAH",rank:"First Officer",avatar:"FC",tag:"Review",time:"3h ago",title:"El Nuevo Acuario — most underrated restaurant in the Caribbean",body:"Looks rough. Don't let it fool you. The whole red snapper is enormous, fresh, and costs less than $25 with tostones. Get there early — they run out. This is one of my top layover meals anywhere.",upvotes:44,liked:false,pinned:false,comments:[]},
+    {id:232,author:"Capt_Vargas",airline:"Delta",base:"ATL",rank:"Captain",avatar:"CV",tag:"Tip",time:"1d ago",title:"La Placita — late night, adventurous crews only",body:"It's an entire section of the city that turns into open-air bars and a street party. If your crew is up for something different and you're comfortable with a lively scene, this is one of the most memorable nights you'll have on a layover anywhere.",upvotes:33,liked:false,pinned:false,comments:[]},
+  ],
+  DAL:[
+    {id:240,author:"Capt_Barnes",airline:"American",base:"DFW",rank:"Captain",avatar:"CB",tag:"Tip",time:"2h ago",title:"Terry Black's — go at opening or go somewhere else",body:"Brisket runs out. Every single day. They open at 11am. Be there at 11. By 1pm the best cuts are gone and you're eating whatever's left. This is a hill I will die on.",upvotes:51,liked:false,pinned:true,comments:[]},
+    {id:241,author:"FO_Garrett",airline:"Southwest",base:"DAL",rank:"First Officer",avatar:"FG",tag:"Review",time:"5h ago",title:"Katy Trail Ice House — the perfect patio for a crew night out",body:"Giant outdoor patio, cold beer, good food, no pretension. Right on the Katy Trail. It's the kind of place where a crew of five can settle in for two hours and everyone has a good time. Not fancy, just right.",upvotes:38,liked:false,pinned:false,comments:[]},
+  ],
+  MSY:[
+    {id:100,author:"Capt_Broussard",airline:"Delta",base:"ATL",rank:"Captain",avatar:"CB",tag:"Tip",time:"1h ago",title:"Frenchmen Street, not Bourbon Street — every time",body:"I've been flying into MSY for 12 years. Bourbon Street is a tourist trap. Frenchmen Street is where the city actually lives. Walk the strip, stop at the Spotted Cat.",upvotes:87,liked:false,pinned:true,comments:[]},
+    {id:101,author:"FO_Thibodaux",airline:"United",base:"IAH",rank:"First Officer",avatar:"FT",tag:"Review",time:"3h ago",title:"Commander's Palace — book it before you leave home",body:"Seriously. If you know you're flying into MSY on a Thursday, book Commander's Palace before you pack your bag. 25-cent martinis at lunch. Yes, really.",upvotes:63,liked:false,pinned:false,comments:[]},
+  ],
+  ICT:[
+    {id:1,author:"FO_Mitchell",airline:"United",base:"ORD",rank:"First Officer",avatar:"FM",tag:"Tip",time:"2h ago",title:"Chester's has a pilots-only back room on Tuesdays",body:"Mention Pilot Passport on Tuesday nights — private dining room in the back. Quieter, faster service.",upvotes:34,liked:false,pinned:true,comments:[{id:101,author:"Capt_Holloway",airline:"Delta",base:"ATL",avatar:"CH",time:"1h ago",text:"Confirmed. Ask for Marcus at the door.",upvotes:12,liked:false}]},
+  ],
+  ATL:[
+    {id:10,author:"Capt_Williams",airline:"Delta",base:"ATL",rank:"Captain",avatar:"CW",tag:"Tip",time:"3h ago",title:"STK Atlanta: ask for the crew rate at the bar",body:"Show your badge Monday–Thursday and ask for the manager. 10% unofficial pilot rate.",upvotes:28,liked:false,pinned:true,comments:[]},
+  ],
+};
+
+const INIT_AF_POSTS={
+  B737:[
+    {id:3001,author:"Capt_Reynolds",airline:"Delta",base:"ATL",rank:"Captain",avatar:"CR",tag:"Tip",time:"2h ago",title:"MAX 8 EFB update — confirmed for Jan 15",body:"Confirmed with tech ops — the new EFB software update for the MAX 8 goes live January 15th. Ground training module is 45 minutes, must be completed before your next MAX 8 leg.",upvotes:41,liked:false,pinned:true,comments:[{id:3002,author:"FO_Santos",airline:"Southwest",base:"DAL",avatar:"FS",time:"1h ago",text:"Thanks for the heads up. Our chief pilot sent a note too — the update includes the new preflight checklist flow as well.",upvotes:18,liked:false}]},
+    {id:3003,author:"FO_Kim",airline:"United",base:"ORD",rank:"First Officer",avatar:"FK",tag:"Question",time:"5h ago",title:"737-800 APU bleed leak indication — trend or one-off?",body:"Had an APU bleed duct leak indication on pushback at ORD yesterday. MEL'd it but curious if others are seeing this. Maintenance says they've had two this month.",upvotes:22,liked:false,pinned:false,comments:[]},
+    {id:3004,author:"Capt_Morris",airline:"Alaska",base:"SEA",rank:"Captain",avatar:"CM",tag:"Review",time:"1d ago",title:"737 MAX MCAS training — worth doing the optional sim session",body:"Our carrier offered an optional extra sim session focused entirely on MCAS scenarios. I highly recommend doing it. The muscle memory is worth the 3 hours.",upvotes:57,liked:false,pinned:false,comments:[]},
+  ],
+  A320:[
+    {id:4001,author:"Capt_Dubois",airline:"United",base:"EWR",rank:"Captain",avatar:"CD",tag:"Warning",time:"1h ago",title:"NEO cold-soak fuel flow — ORD seeing this consistently",body:"Three crews this month reported higher-than-expected fuel flows on cold-soak starts at ORD in January temps. Not a MEL item yet but worth noting in your fuel planning. Maintenance is aware.",upvotes:64,liked:false,pinned:true,comments:[{id:4002,author:"FO_Park",airline:"American",base:"DFW",avatar:"FP",time:"30m ago",text:"DFW seeing it too in cold snaps. Seems to normalize after 10-15 minutes airborne.",upvotes:29,liked:false}]},
+    {id:4003,author:"FO_Hernandez",airline:"Frontier",base:"DEN",rank:"First Officer",avatar:"FH",tag:"Tip",time:"4h ago",title:"A321 NEO LEAP engine start sequence — brief the timing",body:"If you haven't briefed the extended LEAP start timing with a new FO, do it before the first cold morning departure. The sequence feels slow and crews have unnecessarily aborted starts.",upvotes:31,liked:false,pinned:false,comments:[]},
+  ],
+  B787:[
+    {id:5001,author:"Capt_Okafor",airline:"Delta",base:"ATL",rank:"Captain",avatar:"CO",tag:"Question",time:"3h ago",title:"Best 787 sim instructors in ATL — looking for recs",body:"Coming up on my recurrent in March and my usual instructor moved to UA. Who are people using in ATL for 787 recurrents? Looking for someone who really knows the systems.",upvotes:19,liked:false,pinned:true,comments:[{id:5002,author:"Capt_Walsh",airline:"Delta",base:"ATL",avatar:"CW",time:"2h ago",text:"Dave Kowalski at FlightSafety ATL. He's been on the 787 program since day one. Book early — he fills up 6 weeks out.",upvotes:34,liked:false},{id:5003,author:"FO_Chen",airline:"Delta",base:"ATL",avatar:"FC",time:"1h ago",text:"Second the FlightSafety recommendation. Tom Briggs is excellent too if Dave's booked.",upvotes:12,liked:false}]},
+    {id:5004,author:"FO_Larson",airline:"United",base:"ORD",rank:"First Officer",avatar:"FL",tag:"Tip",time:"1d ago",title:"787 Dreamliner — westbound fuel burn anomaly on PACOT",body:"Seeing consistently higher fuel burns westbound on PACOT routes. About 2-3% above filed. Planning with a bit more alternate fuel has been the standard fix. Dispatch is aware.",upvotes:44,liked:false,pinned:false,comments:[]},
+  ],
+  G650:[
+    {id:6001,author:"Capt_Sterling",airline:"NetJets",base:"CMH",rank:"Captain",avatar:"CS",tag:"Tip",time:"1h ago",title:"Best handler at TEB for G650 — Meridian is the answer",body:"Tried everyone at TEB over the years. Meridian is consistently the best for G650 ops. Line crew knows the aircraft, fueling is fast, and they actually hold hangar space when they say they will.",upvotes:38,liked:false,pinned:true,comments:[{id:6002,author:"Capt_Liu",airline:"Flexjet",base:"TEB",avatar:"CL",time:"45m ago",text:"Agreed on Meridian. The ramp manager Mike has been there forever and runs a tight operation.",upvotes:21,liked:false}]},
+    {id:6003,author:"FO_Brennan",airline:"VistaJet",base:"LAS",rank:"First Officer",avatar:"FB",tag:"Question",time:"6h ago",title:"G700 vs G650 range difference in practice — your experience?",body:"Moving from the 650 to the 700 next month. Curious what crews actually see in real-world transatlantic range versus the published numbers. Any ETOPS or single-runway limitations worth knowing?",upvotes:27,liked:false,pinned:false,comments:[]},
+  ],
+  GLF:[
+    {id:7001,author:"Capt_Adeyemi",airline:"Wheels Up",base:"ATL",rank:"Captain",avatar:"CA",tag:"Review",time:"4h ago",title:"Global 7500 STF groundspeed record — 778 kts this week",body:"Had a 778 kt groundspeed westbound over Iceland yesterday. Global 7500 in a good jetstream is something special. Highest I've personally seen.",upvotes:91,liked:false,pinned:true,comments:[{id:7002,author:"FO_Nkosi",airline:"NetJets",base:"TEB",avatar:"FN",time:"3h ago",text:"We hit 776 kt last Tuesday over the North Atlantic. Best ride I've had in two years on type.",upvotes:44,liked:false}]},
+  ],
+  CL65:[
+    {id:8001,author:"Capt_Novak",airline:"Flexjet",base:"DEN",rank:"Captain",avatar:"CN",tag:"Warning",time:"2h ago",title:"CL650 fuel imbalance westbound — it's a known thing",body:"If you're doing long westbound legs on the 650 you will see fuel imbalance develop. It's well within limits but brief it with your FO so nobody panics on the first long leg together.",upvotes:47,liked:false,pinned:true,comments:[]},
+    {id:8002,author:"FO_Tanaka",airline:"NetJets",base:"CMH",rank:"First Officer",avatar:"FT",tag:"Tip",time:"8h ago",title:"CL650 Garmin G5000 SB — completed, here's what to expect",body:"Just finished the avionics update. The cockpit procedure change on startup is minor but worth briefing with your crew. New softkeys in the MFD take about 2 hours of normal ops to feel natural.",upvotes:33,liked:false,pinned:false,comments:[]},
+  ],
+};
+
+const INIT_EV_POSTS={
+  e11:[
+    {id:9001,author:"Capt_Gustafson",airline:"EAA",base:"OSH",rank:"Captain",avatar:"CG",tag:"Tip",time:"3h ago",title:"OSH NOTAM week — read it cover to cover before you go",body:"I fly into OSH every year. The Oshkosh NOTAM is essentially a short novel and it's the only document that matters that week. Read the entire thing. Don't skim it.",upvotes:112,liked:false,pinned:true,comments:[{id:9002,author:"Capt_Reynolds",airline:"Delta",base:"ATL",avatar:"CR",time:"1h ago",text:"Cannot stress this enough. The OSH NOTAM has specific procedures that override everything else. Rock your wings, follow the colored dot procedures. It sounds simple and it is — but only if you've read it.",upvotes:67,liked:false}]},
+    {id:9003,author:"FO_Bergman",airline:"Southwest",base:"MDW",rank:"First Officer",avatar:"FB",tag:"Review",time:"1d ago",title:"Camping on the field — the only way to do Oshkosh",body:"If you haven't camped at Oshkosh, you haven't done Oshkosh. Book your spot on the EAA website months out. Warbird camping is worth every dollar. You wake up surrounded by flying history.",upvotes:78,liked:false,pinned:false,comments:[]},
+    {id:9004,author:"Capt_Holt",airline:"FedEx",base:"MEM",rank:"Captain",avatar:"CH",tag:"Tip",time:"2d ago",title:"Seaplane base — worth the approach for the experience alone",body:"Landing at the OSH seaplane base on a floatplane is one of the great aviation experiences. If you know someone with a floatplane who's going, make the trip. The approach over the spectator crowd is unreal.",upvotes:54,liked:false,pinned:false,comments:[]},
+  ],
+  e2:[
+    {id:9101,author:"Capt_Heyward",airline:"NetJets",base:"SAV",rank:"Captain",avatar:"CH",tag:"Tip",time:"2h ago",title:"AGS ramp — reserve your spot the same day the trip confirms",body:"Augusta Regional fills up the first week of April. Not eventually — immediately. Call your handler the moment the Masters trip is confirmed. If you wait 24 hours you may be diverting to Columbia or Augusta/Bush Field.",upvotes:89,liked:false,pinned:true,comments:[{id:9102,author:"FO_Withers",airline:"Flexjet",base:"ATL",avatar:"FW",time:"1h ago",text:"Confirmed. We had a client call on a Sunday in February wanting a Masters trip. Every handler at AGS was already committed. We ended up operating out of CAE and driving 90 minutes each way.",upvotes:41,liked:false}]},
+    {id:9103,author:"Capt_Bradshaw",airline:"Wheels Up",base:"ATL",rank:"Captain",avatar:"CB",tag:"Review",time:"5h ago",title:"Augusta National — if a patron badge comes your way, take it",body:"A client has offered us patron badges twice over the years. Both times we went. There's nothing like walking Augusta National during the Masters. The course is immaculate in a way that doesn't translate on TV.",upvotes:63,liked:false,pinned:false,comments:[]},
+  ],
+  e6:[
+    {id:9201,author:"Capt_Stone",airline:"NetJets",base:"TEB",rank:"Captain",avatar:"CS",tag:"Tip",time:"4h ago",title:"NBAA BACE — Henderson Executive is your answer for parking",body:"Every operator knows not to try to park at LAS during NBAA. Henderson Executive (KHND) is 15 minutes from the convention center and you can actually get a hangar. Use a good handler and pre-arrange transport.",upvotes:74,liked:false,pinned:true,comments:[]},
+    {id:9202,author:"FO_Nguyen",airline:"VistaJet",base:"LAS",rank:"First Officer",avatar:"FN",tag:"Review",time:"1d ago",title:"NBAA static display — walk it early Tuesday morning",body:"Static display gets crowded fast. Wednesday and Thursday you're shoulder-to-shoulder with vendor crowds. Walk the static display first thing Tuesday morning when it opens. You'll have the aircraft to yourself.",upvotes:38,liked:false,pinned:false,comments:[]},
+  ],
+  e4:[
+    {id:9301,author:"Capt_Delacroix",airline:"Flexjet",base:"DEN",rank:"Captain",avatar:"CD",tag:"Warning",time:"1h ago",title:"LAS Grand Prix weekend — plan for 4-hour ground transport",body:"We operated 6 trips in and out of LAS during Grand Prix weekend last year. Ground transport is the constraint, not the ramp. Build 3-4 hours each way into your schedule for passenger ground transit. The Strip is closed.",upvotes:83,liked:false,pinned:true,comments:[{id:9302,author:"FO_Reyes",airline:"NetJets",base:"LAX",avatar:"FR",time:"30m ago",text:"Can confirm. We had a pax miss a departure because the road closures added 45 minutes unexpectedly. Go early or go around.",upvotes:34,liked:false}]},
+  ],
+  e1:[
+    {id:9401,author:"Capt_Broussard",airline:"Delta",base:"ATL",rank:"Captain",avatar:"CB",tag:"Tip",time:"2h ago",title:"Super Bowl weekend in NOLA — MSY ops brief",body:"Flew into MSY for the NFC Championship last year as a preview. During Super Bowl weekend expect severe ramp constraints at MSY. Signature and Showalter both told me their allocation is already gone. Charter ops should be looking at BTR and Gulfport as divert options.",upvotes:66,liked:false,pinned:true,comments:[]},
+    {id:9402,author:"FO_Arceneaux",airline:"United",base:"IAH",rank:"First Officer",avatar:"FA",tag:"Meetup",time:"6h ago",title:"Crew meetup — Frenchmen Street Saturday night",body:"Organizing an informal crew meetup at the Spotted Cat on Frenchmen Street Saturday night after the game. Reply here if you're planning to be in town. We'll coordinate a time.",upvotes:29,liked:false,pinned:false,comments:[]},
+  ],
+};
+
+export { BC, PT, EVENTS, AIRFRAMES, INIT_POSTS, INIT_AF_POSTS, INIT_EV_POSTS };

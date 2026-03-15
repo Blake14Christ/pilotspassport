@@ -1,0 +1,25 @@
+const JOBS=[
+  {id:"j001",title:"Contract SIC Needed — KSNA → Cabo",airframe:"CL30",aircraft:"Citation XLS",date:"March 18–20",dep:"KSNA",typeRating:true,ttHours:1500,typeHours:250,payNum:1200,pay:"$1,200/day",hotel:true,operator:"verified",contact:"abchrist16@gmail.com",status:"open",posted:"2h ago",intl:true,role:"SIC",img:"https://storage.googleapis.com/laravelaeroimages/uploads/custom-images/blog--2024-04-16-04-51-05-1284.jpeg",desc:"Seeking experienced SIC for a two-leg leisure trip KSNA–MMSD and return. Crew-friendly schedule with hotel and per diem covered. Verified Part 135 operator."},
+  {id:"j002",title:"B737 Relief FO — ATL Hub Rotation",airframe:"B737",aircraft:"Boeing 737-800",date:"April 2–14",dep:"KATL",typeRating:true,ttHours:3000,typeHours:500,payNum:650,pay:"$650/day",hotel:true,operator:"verified",status:"open",posted:"5h ago",intl:false,role:"SIC",img:"https://images.unsplash.com/photo-1556388158-158ea5ccacbd?w=800&q=80",desc:"Covering vacation relief for two weeks on the ATL domestic rotation. Must hold 737 type rating. Hotel and deadhead covered. Schedule posted 72 hours in advance."},
+  {id:"j003",title:"G650 Captain — TEB-based Ultra Long Range",airframe:"G650",aircraft:"Gulfstream G650ER",date:"April 7–10",dep:"KTEB",typeRating:true,ttHours:5000,typeHours:250,payNum:2400,pay:"$2,400/day",hotel:true,operator:"verified",status:"open",posted:"1d ago",intl:true,role:"Captain",img:"https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=800&q=80",desc:"TEB-based operator seeking contract captain for transatlantic leisure trip. G650/G650ER type required. International experience preferred. All hotel, transport, and expenses covered."},
+  {id:"j004",title:"PC-12 SIC — Pacific Northwest Cargo",airframe:"PC12",aircraft:"Pilatus PC-12 NG",date:"March 22–26",dep:"KBFI",typeRating:true,ttHours:800,typeHours:100,payNum:450,pay:"$450/day",hotel:true,operator:"verified",status:"open",posted:"1d ago",intl:false,role:"SIC",img:"https://images.aircharterservice.com/global/aircraft-guide/private-charter/pilatus-pc-12-1.jpg",desc:"Contract SIC needed for cargo rotation out of BFI to regional Pacific NW destinations. IFR current required. PC-12 type preferred but willing to train the right candidate."},
+  {id:"j005",title:"Citation Mustang Captain — Southeast Charter",airframe:"CJ",aircraft:"Citation Mustang",date:"April 14–16",dep:"KPDK",typeRating:true,ttHours:2000,typeHours:150,payNum:900,pay:"$900/day",hotel:true,operator:"verified",status:"open",posted:"2d ago",intl:false,role:"Captain",img:"https://globaljet.aero/sites/default/files/2021-01/Cessna%20Citation%20Mustang%20Exterior.jpg",desc:"Weekend charter rotation around the Southeast. PDK base, primarily FL and SC destinations. Mustang type required. Part 135 certificate check required."},
+  {id:"j006",title:"B787 Relief Captain — Pacific Routes",airframe:"B787",aircraft:"Boeing 787-9 Dreamliner",date:"April 20–30",dep:"KSEA",typeRating:true,ttHours:8000,typeHours:1000,payNum:1800,pay:"$1,800/day",hotel:true,operator:"verified",status:"open",posted:"2d ago",intl:true,role:"Captain",img:"https://images.unsplash.com/photo-1556388158-158ea5ccacbd?w=800&q=80",desc:"Seeking 787-qualified captain for 10-day Pacific relief rotation SEA hub. All-inclusive comp with premium hotel. ETOPS experience required. Excellent crew."},
+  {id:"j007",title:"CRJ-700 FO — Midwest Regional Rotation",airframe:"CL65",aircraft:"Bombardier CRJ-700",date:"March 25–April 4",dep:"KORD",typeRating:true,ttHours:1500,typeHours:200,payNum:480,pay:"$480/day",hotel:true,operator:"verified",status:"open",posted:"3d ago",intl:false,role:"SIC",img:"https://baatraining.com/wp-content/uploads/2023/02/trto-bombardier-crj-700-900-hero.webp",desc:"Regional carrier seeking FO for 10-day rotation out of ORD. CRJ-700 or 900 type required. Hotel and deadhead included. Smooth operation with a good team."},
+  {id:"j008",title:"A320 Relief FO — West Coast Bases",airframe:"A320",aircraft:"Airbus A320neo",date:"April 5–15",dep:"KLAX",typeRating:true,ttHours:2500,typeHours:400,payNum:750,pay:"$750/day",hotel:true,operator:"verified",status:"open",posted:"3d ago",intl:false,role:"SIC",img:"https://images.unsplash.com/photo-1569629743817-70d8db6c323b?w=800&q=80",desc:"LAX-based relief FO position covering vacation leave. A320 family type required. 10-day block with fixed days off. Good schedule predictability."},
+];
+
+const JOB_AF_FILTERS=[
+  {id:"All",label:"ALL AIRCRAFT"},
+  {id:"CL30",label:"CJ / XLS"},
+  {id:"B737",label:"B737"},
+  {id:"A320",label:"A320"},
+  {id:"B787",label:"B787"},
+  {id:"G650",label:"GULFSTREAM"},
+  {id:"CL65",label:"CRJ"},
+  {id:"PC12",label:"PC-12"},
+];
+
+const BLANK_JOB={title:"",aircraft:"",airframe:"B737",dep:"",date:"",pay:"",hotel:false,typeRating:false,ttHours:"",typeHours:"",desc:"",operator:"verified",contact:""};
+
+export { JOBS, JOB_AF_FILTERS, BLANK_JOB };
