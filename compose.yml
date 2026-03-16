@@ -1,0 +1,10 @@
+services:
+  app:
+    build: .
+    ports:
+      - "5192:5192"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    stdin_open: true
+    tty: true
