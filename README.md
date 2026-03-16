@@ -77,3 +77,13 @@ View function logs:
 ```bash
 npm run logs
 ```
+
+## To get Firebase up and running
+
+```
+docker compose exec app sh
+/app # firebase login
+/app # firebase init hosting
+/app # npm run build
+/app # firebase deploy --only hosting
+
